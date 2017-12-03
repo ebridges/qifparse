@@ -25,14 +25,14 @@ class TestCreateQIF(unittest.TestCase):
         acc = qif.Account(name='My Cc')
         qif_obj.add_account(acc)
         res = qif_obj.get_accounts(name='My Cc')
-        self.failUnless(len(res))
+        self.assertTrue(len(res))
 
     def testAddandGetCategories(self):
         qif_obj = qif.Qif()
         cat = qif.Category(name='my cat')
         qif_obj.add_category(cat)
         res = qif_obj.get_categories(name='my cat')
-        self.failUnless(len(res))
+        self.assertTrue(len(res))
 
 
 if __name__ == "__main__":
