@@ -5,6 +5,42 @@ from qifparse import qif
 
 class TestCreateQIF(unittest.TestCase):
 
+    def testCreateSplit(self):
+        expected='''!Account
+NAssets:Checking Accounts:Checking
+TBank
+^
+!Type:Bank
+D12/11/2017
+T-100
+S[Expenses:Groceries]
+$-40
+S[Expenses:Clothing]
+$-60
+^
+'''
+
+        qif_obj = qif.Qif()
+        chk_acc = qif.Account(name='Assets:Checking Accounts:Checking', account_type='Bank')
+        qif_obj.add_account(chk_acc)
+
+        expense = qif.Transaction()
+        expense.amount = -100
+
+        splitA = qif.AmountSplit()
+        splitA.to_account = 'Expenses:Groceries'
+        splitA.amount = -40
+        expense.splits.append(splitA)
+
+        splitB = qif.AmountSplit()
+        splitB.to_account = 'Expenses:Clothing'
+        splitB.amount = -60
+        expense.splits.append(splitB)
+
+        chk_acc.add_transaction(expense, header='!Type:Bank')
+#        print(str(qif_obj))
+        self.assertEqual(expected, str(qif_obj))
+
     def testcreateQifFile(self):
         qif_obj = qif.Qif()
         acc = qif.Account(name='My Cc', account_type='Bank')
