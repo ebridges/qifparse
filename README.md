@@ -1,8 +1,7 @@
 QIF Parser
 ============
 
-.. image:: https://travis-ci.org/ebridges/qifparse.png?branch=master
-    :target: https://travis-ci.org/ebridges/qifparse
+[![Travis CI Status](https://travis-ci.org/ebridges/qifparse.png?branch=master)](https://travis-ci.org/ebridges/qifparse)
 
 qifparse is a parser for Quicken interchange format files (.qif).
 
@@ -20,6 +19,7 @@ Usage
 
 Here's a sample parsing:
 
+```
    >>> from qifparse.parser import QifParser
    >>> qif = QifParser.parse(file('file.qif'))
    >>> qif.get_accounts()
@@ -33,10 +33,11 @@ Here's a sample parsing:
    >>> str(qif)
    '!Type:Cat\nNfood\nE\n^\nNfood:lunch\nE\n^\n!Account\nNMy Cash\nTCash\n^\n!Type:Cash...
    ...
+```
 
 Here's a sample of a structure creation::
 
-
+```
    >>> qif_obj = qif.Qif()
    >>> acc = qif.Account(name='My Cc', account_type='Bank')
    >>> qif_obj.add_account(acc)
@@ -53,6 +54,7 @@ Here's a sample of a structure creation::
    >>> str(qif_obj)
    '!Type:Cat\nNfood\nE\n^\n!Account\nNMy Cc\nTBank\n^\n!Type:Bank\nD02/11/2013\nT...
    ...
+```
 
 Object Definitions
 ============
