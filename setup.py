@@ -2,7 +2,7 @@ import os
 from setuptools import setup, find_packages
 
 version = '0.6'
-long_description = open("README.rst").read() + "\n" + \
+long_description = open("README.md").read() + "\n" + \
     open("CHANGELOG.rst").read()
 
 setup(name='qifparse',
@@ -16,11 +16,7 @@ setup(name='qifparse',
           "Intended Audience :: Developers",
           "License :: OSI Approved :: GNU General Public License (GPL)",
           "Operating System :: OS Independent",
-          "Programming Language :: Python :: 2.6",
-          "Programming Language :: Python :: 2.7",
-          "Programming Language :: Python :: 3",
-          "Programming Language :: Python :: 3.2",
-          "Programming Language :: Python :: 3.3",
+          "Programming Language :: Python :: 3.6",
           "Programming Language :: Python",
           "Topic :: Software Development :: Libraries :: Python Modules",
           "Topic :: Utilities",
@@ -28,7 +24,7 @@ setup(name='qifparse',
       keywords='qif, Quicken interchange format, file format',
       author='Giacomo Spettoli',
       author_email='giacomo.spettoli@gmail.com',
-      url='https://github.com/giacomos/qifparse',
+      url='https://github.com/ebridges/qifparse',
       license='GPL',
       packages=find_packages(exclude=['ez_setup']),
       include_package_data=True,
