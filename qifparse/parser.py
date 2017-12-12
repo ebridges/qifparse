@@ -342,7 +342,7 @@ class QifParser(object):
             if qdate[i] == " ":
                 qdate = qdate[:i] + "0" + qdate[i+1:]
         if len(qdate) == 10:  # new form with YYYY date
-            iso_date = qdate[6:10] + "-" + qdate[3:5] + "-" + qdate[0:2]
+            iso_date = qdate[6:10] + "-" + qdate[0:2] + "-" + qdate[3:5]
             return datetime.strptime(iso_date, '%Y-%m-%d')
         if qdate[5] == "'":
             C = "20"
