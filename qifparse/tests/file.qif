@@ -10,15 +10,15 @@ NMy Cash
 TCash
 ^
 !Type:Cash
-D23/10/2013
+D10/23/2013
 T-6.50
 Lfood:lunch
 ^
-D11/10/2013
+D10/11/2013
 T31.00
 L[My Cc]
 ^
-D11/10/2013
+D10/11/2013
 T-48.00
 Avia Roma
 A44100, Ferrara
@@ -33,7 +33,7 @@ NMy Cc
 TInvst
 ^
 !Type:Invst
-D25/07/1993
+D07/25/1993
 NShrsIn
 Yibm4
 I11.260
@@ -42,7 +42,7 @@ CX
 T1000.00
 MOpening
 ^
-D25/08/1993
+D08/25/1993
 NBuyX
 Yibm4
 I11.030
