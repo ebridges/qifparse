@@ -18,7 +18,7 @@ it's still quite commonly used by many personal finance managers.
 Usage
 ======
 
-Here's a sample parsing::
+Here's a sample parsing:
 
    >>> from qifparse.parser import QifParser
    >>> qif = QifParser.parse(file('file.qif'))
@@ -53,6 +53,89 @@ Here's a sample of a structure creation::
    >>> str(qif_obj)
    '!Type:Cat\nNfood\nE\n^\n!Account\nNMy Cc\nTBank\n^\n!Type:Bank\nD02/11/2013\nT...
    ...
+
+Object Definitions
+============
+
+### Class `QifParser`
+
+*Methods*
+
+Main entry point of the application:
+
+* `parse(file_handle, date_format=None)`
+
+Several internal class methods for parsing sub-components of the QIF file.  The file is split on the `^` character into a list of `chunk`s and fed to one or more of the below methods:
+
+* `parseClass(chunk)`
+* `parseCategory(chunk)`
+* `parseAccount(chunk)`
+* `parseMemorizedTransaction(chunk, date_format=None)`
+* `parseTransaction(chunk, date_format=None)`
+* `parseInvestment(chunk, date_format=None)`
+
+Class method for handling the various different date formats that may appear in the `D` field (for `Transaction` and `Investment` fields.):
+
+* `parseQifDateTime(qdate)`
+
+
+### Class `Qif`
+
+*Methods*
+
+* `add_account()`
+* `add_category()`
+* `add_class()`
+* `add_transaction()`
+* `get_accounts()`: returns a list of `Account` objects.
+* `get_categories()`
+* `get_classes()`
+* `get_transactions()`
+
+### Class `Account`
+
+*Methods*
+
+* `account_type()`
+* `add_transaction()`
+* `balance_amount()`
+* `balance_date()`
+* `credit_limit()`
+* `date_format()`
+* `description()`
+* `get_transactions()`: returns a `tuple` of lists of `Transaction` objects.
+* `get_type()`
+* `name()`
+* `set_type()`
+
+### Class `Transaction`
+
+*Fields*
+
+* `address`
+* `amount`
+* `category`
+* `cleared`
+* `date`
+* `date_format`
+* `memo`
+* `num`
+* `payee`
+* `reimbursable_expense`
+* `small_business_expense`
+* `splits`
+* `to_account`
+
+### Class `Split`
+
+*Fields*
+
+* `category`
+* `to_account`
+* `amount`
+* `percent`
+* `address`
+* `memo`
 
 More infos
 ============
