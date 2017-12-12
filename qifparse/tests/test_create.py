@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 import unittest
 from qifparse import qif
-
+from datetime import datetime
 
 class TestCreateQIF(unittest.TestCase):
 
@@ -11,7 +11,7 @@ NAssets:Checking Accounts:Checking
 TBank
 ^
 !Type:Bank
-D12/11/2017
+D02/14/2004
 T-100
 S[Expenses:Groceries]
 $-40
@@ -25,6 +25,7 @@ $-60
         qif_obj.add_account(chk_acc)
 
         expense = qif.Transaction()
+        expense.date = datetime(2004, 2, 14)
         expense.amount = -100
 
         splitA = qif.AmountSplit()
@@ -38,7 +39,6 @@ $-60
         expense.splits.append(splitB)
 
         chk_acc.add_transaction(expense, header='!Type:Bank')
-#        print(str(qif_obj))
         self.assertEqual(expected, str(qif_obj))
 
     def testcreateQifFile(self):

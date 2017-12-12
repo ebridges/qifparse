@@ -1,8 +1,8 @@
 QIF Parser
 ============
 
-.. image:: https://travis-ci.org/giacomos/qifparse.png?branch=master   
-    :target: https://travis-ci.org/giacomos/qifparse
+.. image:: https://travis-ci.org/ebridges/qifparse.png?branch=master
+    :target: https://travis-ci.org/ebridges/qifparse
 
 qifparse is a parser for Quicken interchange format files (.qif).
 
