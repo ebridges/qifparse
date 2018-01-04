@@ -128,7 +128,7 @@ Class method for handling the various different date formats that may appear in 
 * `splits`
 * `to_account`
 
-### Class `Split`
+### Class `AmountSplit`
 
 *Fields*
 
